@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 class Machine(models.Model):
-    machineid = models.UUIDField(primary_key=True)
+    machineid = models.CharField(max_length=200, primary_key=True)
     clientid = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     kind = models.CharField(max_length=200)
