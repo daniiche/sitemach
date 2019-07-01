@@ -87,8 +87,8 @@ DATABASES = {
         'NAME': 'django_db',
         'USER' : 'Sitemach',
         'PASSWORD' : 'Djangosite',
-        'HOST' : '127.0.0.1',
-        'PORT' : '5432',
+        'HOST' : 'localhost',
+        'PORT' : '',
     }
 }
 
