@@ -1,2 +1,7 @@
 Django~=2.2.2
 psycopg~=2-2.8.3
+djangorestframework~=3.9.4
+django-rest-knox~=2.19
+Node.js~=12.6.0
+npm~=6.9.0
+
