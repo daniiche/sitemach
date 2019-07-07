@@ -1,0 +1,3 @@
+export const GET_MACHINES = "GET_MACHINES";
+export const DELETE_MACHINE = "DELETE_MACHINE";
+export const ADD_MACHINE = "ADD_MACHINE";
