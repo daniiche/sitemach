@@ -70,6 +70,7 @@ coverage.xml
 
 # Django stuff:
 db.sqlite3-journal
+frontend/static/frontend/main.js
 
 # Flask stuff:
 instance/
@@ -115,6 +116,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+./myvenv
 
 # Spyder project settings
 .spyderproject
@@ -133,3 +135,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# IntellijIdea files
+*.iml
+.idea
+out

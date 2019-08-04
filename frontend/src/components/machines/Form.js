@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addMachine } from "../../actions/machines";
+import {Link} from "react-router-dom";
 
 export class Form extends Component {
     state = {
-        machineId:"",
         model: "",
         kind: "",
-        brand: ""
+        brand: "",
+        machineId: ""
     };
 
     static propTypes = {
@@ -16,20 +17,27 @@ export class Form extends Component {
     };
 
     onChange = e => this.setState({
-        [e.target.model]: e.target.value});
+        [e.target.name]: e.target.value});
 
     onSubmit = e => {
         e.preventDefault();
         const { model, kind, brand, machineId } = this.state;
         const machine = { model, kind, brand, machineId };
         this.props.addMachine(machine);
+        this.setState({
+            model: "",
+            kind: "",
+            brand: "",
+            machineId: ""
+        });
     };
 
     render() {
         const { model, kind, brand, machineId } = this.state;
         return (
-          <div className="card card-body mt-4 mb-4">
-            <h2>Add Machine </h2>
+            <div className="card card-body mt-4 mb-4">
+            <h2>Add Machine</h2>
+                <Link to="/item/2/" className="nav-link">Item</Link>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label>Model</label>
@@ -39,6 +47,7 @@ export class Form extends Component {
                   name="model"
                   placeholder="Input model"
                   onChange={this.onChange}
+                  value={model}
                 />
               </div>
               <div className="form-group">
@@ -49,6 +58,7 @@ export class Form extends Component {
                   name="kind"
                   placeholder="Input kind"
                   onChange={this.onChange}
+                  value={kind}
                 />
               </div>
               <div className="form-group">
@@ -59,6 +69,7 @@ export class Form extends Component {
                   name="brand"
                   placeholder="Input brand"
                   onChange={this.onChange}
+                  value={brand}
                 />
               </div>
                 <div className="form-group">
@@ -69,6 +80,7 @@ export class Form extends Component {
                   name="machineId"
                   placeholder="Input machineId"
                   onChange={this.onChange}
+                  value={machineId}
                 />
                 </div>
               <div className="form-group">
@@ -82,4 +94,4 @@ export class Form extends Component {
     }
 }
 
-export default connect(null, {addMachine})(Form);
+export default connect(null, { addMachine })(Form);
