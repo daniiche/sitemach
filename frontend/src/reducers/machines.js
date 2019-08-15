@@ -1,4 +1,4 @@
-import { GET_MACHINES, DELETE_MACHINE, ADD_MACHINE,LOGOUT_SUCCESS} from '../actions/types.js';
+import { GET_MACHINES, LOGOUT_SUCCESS} from '../actions/types.js';
 
 const initialState = {
     machines: []
@@ -10,17 +10,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 machines: action.payload
-            };
-        case DELETE_MACHINE:
-            return {
-                ...state,
-                machines: state.machines.filter(machine => machine.machineId !==
-                action.payload)
-            };
-        case ADD_MACHINE:
-            return{
-                ...state,
-                machines: [...state.machines, action.payload]
             };
         case LOGOUT_SUCCESS:
             return {

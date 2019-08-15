@@ -1,9 +1,10 @@
 from rest_framework import viewsets, permissions
 from .serializers import MachineSerializer, ItemSerializer
 from machines import models
+from rest_framework import generics
 
 
-# Machine Viewset
+# Machine viewset (list of machines)
 class MachineViewSet(viewsets.ReadOnlyModelViewSet):
 
     permission_classes = [
@@ -15,11 +16,9 @@ class MachineViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         return self.request.user.machines.all()
 
-    def perform_create(self, serializer):
-        serializer.save(clientId=self.request.user)
 
-
-class ItemViewSet(viewsets.ReadOnlyModelViewSet):
+# Item view (a single object instance by id)
+class ItemViewSet(generics.RetrieveAPIView):
 
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly,
@@ -27,5 +26,5 @@ class ItemViewSet(viewsets.ReadOnlyModelViewSet):
 
     serializer_class = ItemSerializer
 
-    def get_queryset(self):
-        return models.Machine.objects.all()
+    def get_object(self):
+        return models.Machine.objects.get(machineId=self.kwargs['machineId'])

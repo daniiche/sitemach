@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getMachines, deleteMachine } from "../../actions/machines";
+import { getMachines} from "../../actions/machines";
+import {Link} from "react-router-dom";
 
 export class Machines extends Component {
     static propTypes = {
         machines: PropTypes.array.isRequired,
-        getMachines: PropTypes.func.isRequired,
-        deleteMachine: PropTypes.func.isRequired
+        getMachines: PropTypes.func.isRequired
     };
 
     componentDidMount() {
@@ -17,25 +17,15 @@ export class Machines extends Component {
     render() {
         return (
             <Fragment>
-                <h2>Machines List</h2>
-                <table className="table table-striped">
-                    <thead>
-                     <tr>
-                         <th>ID</th>
-                         <th>Model</th>
-                         <th>Kind</th>
-                         <th>Brand</th>
-                        <th />
-                     </tr>
-                    </thead>
+                <h2 className="text-center">Machines List</h2>
+                <table className="table table-striped table-hover table-responsive-sm">
                     <tbody>
                         {this.props.machines.map(machine => (
                             <tr key={machine.machineId}>
-                                <td>{machine.machineId}</td>
-                                <td>{machine.model}</td>
-                                <td>{machine.kind}</td>
-                                <td>{machine.brand}</td>
-                                <td><button onClick={this.props.deleteMachine.bind(this, machine.machineId)} className="btn btn-danger btn-sm">Delete</button></td>
+                                <td className="text-right align-middle"><Link title={"Open "+machine.kind+" "+machine.brand+" "+machine.model+"page"} to={'/item/'+machine.machineId+'/'}><img className="img-fluid rounded" style={{maxHeight: "40px"}} src={machine.image1}/></Link></td>
+                                <td className="align-middle"><strong><Link title="Open machine page" to={'/item/'+machine.machineId+'/'} >{machine.kind+" "+machine.brand+" "+machine.model}</Link></strong></td>
+                                <td className="align-middle"><Link className="btn btn-success" title={"QR code for "+machine.kind+" "+machine.brand+" "+machine.model} style={{fontSize: "0.7rem"}} to={"/item/"+machine.machineId+"/qr/"}>QR code</Link></td>
+                                <td className="align-middle"><Link className="btn btn-warning" title={"Contact supplier on "+machine.kind+" "+machine.brand+" "+machine.model} style={{fontSize: "0.7rem"}} to={"/item/"+machine.machineId+"/contact/"}>Contact</Link></td>
                             </tr>
                         ))}
                     </tbody>
@@ -51,5 +41,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getMachines, deleteMachine })
+    { getMachines })
 (Machines);
