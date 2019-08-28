@@ -18,7 +18,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'w1tvhl9p3ot8mc2cws-cqftnmq+f3x%fwj)^_&k7o8enl+dl+e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 DOMAIN ='sitemach.herokuapp.com'
 
@@ -49,6 +49,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,3 +127,70 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+'''AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False
+AWS_ACCESS_KEY_ID = 'AKIAILHZZO3XQUSB544A'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'sitemach'
+MEDIA_URL = 'https://%s.s3.eu-west-2.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_S3_HOST = 's3.amazonaws.com'
+AWS_S3_ENDPOINT_URL = 'https://s3.eu-west-2.amazonaws.com/'
+AWS_S3_ADDRESSING_STYLE ='virtual'
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"'''
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] ' +
+                       'pathname=%(pathname)s lineno=%(lineno)s ' +
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'testlogger': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }
+    }
+}
+'''LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}'''
