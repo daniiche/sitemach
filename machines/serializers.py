@@ -2,7 +2,7 @@ from rest_framework import serializers
 from machines.models import Machine
 
 
-# Machine serializer
+# Machine list serializer
 class MachineSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -10,6 +10,7 @@ class MachineSerializer(serializers.ModelSerializer):
         fields = ('machineId', 'model', 'kind', 'brand', 'image1')
 
 
+# Full machine details serializer
 class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:

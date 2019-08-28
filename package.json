@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --watch ./frontend/src/index.js --output ./frontend/static/frontend/main.js",
-    "build": "webpack --mode production  ./frontend/src/index.js --output ./frontend/static/frontend/main.js"
+    "build": "webpack --mode production  ./frontend/src/index.js --output ./frontend/static/frontend/main.js",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -46,5 +47,9 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
+  },
+  "engines": {
+    "node": "12.6.0",
+    "npm": "6.9.0"
   }
 }

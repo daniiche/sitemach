@@ -9,7 +9,7 @@ export const createMessage = msg => {
     };
 };
 
-// Create message
+// Return errors
 export const returnErrors = (msg, status) => {
     return {
         type: GET_ERRORS,

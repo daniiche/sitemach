@@ -39,7 +39,7 @@ export class Header extends Component {
         return (
             <nav className="navbar navbar-expand-md navbar-light bg-light">
                 <div className="container">
-                    <a className="navbar-brand" style={{fontSize: "1.6rem"}} >⚙️Mach.Mach🚀</a>
+                    <a className="navbar-brand" style={{fontSize: "1.6rem"}} ><strong>⚙️ Sitemach</strong></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
                             aria-label="Toggle navigation">

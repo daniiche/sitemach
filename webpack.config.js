@@ -1,3 +1,4 @@
+//Converts JSX to JavaScript
 module.exports = {
   module: {
     rules: [

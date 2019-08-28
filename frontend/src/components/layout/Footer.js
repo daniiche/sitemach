@@ -10,13 +10,11 @@ export class Footer extends Component {
 
     render() {
 
-        const { isAuthenticated } = this.props.auth;
-
         return (
 
             <footer className="footer py-4 bg-dark text-white-50 mt-5 sticky-bottom">
                 <div className="container text-center">
-                    <small>Copyright &copy; Daniiche</small>
+                    <small>Copyright &copy; Daniil Chbunin , 2019</small>
                 </div>
             </footer>
         );

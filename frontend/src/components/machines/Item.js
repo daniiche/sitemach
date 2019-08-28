@@ -46,19 +46,28 @@ export class Item extends Component {
                     if (model) table.push(<tr key="model"><td>Model</td><td>{model}</td></tr>)
                     if (kind) table.push(<tr key="kind"><td>Kind</td><td>{kind}</td></tr>)
                     if (brand) table.push(<tr key="brand"><td>Brand</td><td>{brand}</td></tr>)
-                    if (manufactured_date) table.push(<tr key="manufactured_date"><td>Manufactured date</td><td>{manufactured_date}</td></tr>)
-                    if (purchased_date) table.push(<tr key="purchased_date"><td>Purchased date</td><td>{purchased_date}</td></tr>)
-                    if (warranty_date) table.push(<tr key="warranty_date"><td>Warranty expiry date</td><td>{warranty_date}</td></tr>)
+                    if (manufactured_date) table.push(<tr key="manufactured_date"><td>Manufactured date</td><td>
+                        {manufactured_date}</td></tr>)
+                    if (purchased_date) table.push(<tr key="purchased_date"><td>Purchased date</td><td>
+                        {purchased_date}</td></tr>)
+                    if (warranty_date) table.push(<tr key="warranty_date"><td>Warranty expiry date</td><td>
+                        {warranty_date}</td></tr>)
                     if (length) table.push(<tr key="length"><td>Length</td><td>{length} mm</td></tr>)
                     if (width) table.push(<tr key="width"><td>Width</td><td>{width} mm</td></tr>)
                     if (height) table.push(<tr key="height"><td>Height</td><td>{height} mm</td></tr>)
                     if (weight) table.push(<tr key="weight"><td>Weight</td><td>{weight} kg</td></tr>)
-                    if (spec_file) table.push(<tr key="spec_file"><td>Specifications</td><td><a title="Download the document" href={spec_file} target="_blank">{spec_file.substring(33)}</a></td></tr>)
-                    if (sparts_file) table.push(<tr key="sparts_file"><td>Spare parts</td><td><a title="Download the document" href={sparts_file} target="_blank">{sparts_file.substring(33)}</a></td></tr>)
-                    if (cons_file) table.push(<tr key="cons_file"><td>Consumables</td><td><a title="Download the document" href={cons_file} target="_blank">{cons_file.substring(33)}</a></td></tr>)
-                    if (warranty_file) table.push(<tr key="warranty_file"><td>Warranty details</td><td><a title="Download the document" href={warranty_file} target="_blank">{warranty_file.substring(33)}</a></td></tr>)
-                    if (instruct_file) table.push(<tr key="instruct_file"><td>Instructions</td><td><a title="Download the document" href={instruct_file} target="_blank">{instruct_file.substring(33)}</a></td></tr>)
-                    if (main_file) table.push(<tr key="main_file"><td>Maintenance details</td><td><a title="Download the document" href={main_file} target="_blank">{main_file.substring(33)}</a></td></tr>)
+                    if (spec_file) table.push(<tr key="spec_file"><td>Specifications</td><td><a
+                        title="Download the document" href={spec_file} target="_blank">{spec_file.substring(33)}</a></td></tr>)
+                    if (sparts_file) table.push(<tr key="sparts_file"><td>Spare parts</td><td><a
+                        title="Download the document" href={sparts_file} target="_blank">{sparts_file.substring(33)}</a></td></tr>)
+                    if (cons_file) table.push(<tr key="cons_file"><td>Consumables</td><td><a
+                        title="Download the document" href={cons_file} target="_blank">{cons_file.substring(33)}</a></td></tr>)
+                    if (warranty_file) table.push(<tr key="warranty_file"><td>Warranty details</td><td><a
+                        title="Download the document" href={warranty_file} target="_blank">{warranty_file.substring(33)}</a></td></tr>)
+                    if (instruct_file) table.push(<tr key="instruct_file"><td>Instructions</td><td><a
+                        title="Download the document" href={instruct_file} target="_blank">{instruct_file.substring(33)}</a></td></tr>)
+                    if (main_file) table.push(<tr key="main_file"><td>Maintenance details</td><td><a
+                        title="Download the document" href={main_file} target="_blank">{main_file.substring(33)}</a></td></tr>)
                 return table
             }
             if (command=='head'){
