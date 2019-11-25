@@ -57,17 +57,17 @@ export class Item extends Component {
                     if (height) table.push(<tr key="height"><td>Height</td><td>{height} mm</td></tr>)
                     if (weight) table.push(<tr key="weight"><td>Weight</td><td>{weight} kg</td></tr>)
                     if (spec_file) table.push(<tr key="spec_file"><td>Specifications</td><td><a
-                        title="Download the document" href={spec_file} target="_blank">{spec_file.substring(43)}</a></td></tr>)
+                        title="Download the document" href={spec_file} target="_blank">{spec_file.substring(33)}</a></td></tr>)
                     if (sparts_file) table.push(<tr key="sparts_file"><td>Spare parts</td><td><a
-                        title="Download the document" href={sparts_file} target="_blank">{sparts_file.substring(43)}</a></td></tr>)
+                        title="Download the document" href={sparts_file} target="_blank">{sparts_file.substring(33)}</a></td></tr>)
                     if (cons_file) table.push(<tr key="cons_file"><td>Consumables</td><td><a
-                        title="Download the document" href={cons_file} target="_blank">{cons_file.substring(43)}</a></td></tr>)
+                        title="Download the document" href={cons_file} target="_blank">{cons_file.substring(33)}</a></td></tr>)
                     if (warranty_file) table.push(<tr key="warranty_file"><td>Warranty details</td><td><a
-                        title="Download the document" href={warranty_file} target="_blank">{warranty_file.substring(43)}</a></td></tr>)
+                        title="Download the document" href={warranty_file} target="_blank">{warranty_file.substring(33)}</a></td></tr>)
                     if (instruct_file) table.push(<tr key="instruct_file"><td>Instructions</td><td><a
-                        title="Download the document" href={instruct_file} target="_blank">{instruct_file.substring(43)}</a></td></tr>)
+                        title="Download the document" href={instruct_file} target="_blank">{instruct_file.substring(33)}</a></td></tr>)
                     if (main_file) table.push(<tr key="main_file"><td>Maintenance details</td><td><a
-                        title="Download the document" href={main_file} target="_blank">{main_file.substring(43)}</a></td></tr>)
+                        title="Download the document" href={main_file} target="_blank">{main_file.substring(33)}</a></td></tr>)
                 return table
             }
             if (command=='head'){

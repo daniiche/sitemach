@@ -23,22 +23,22 @@ class Machine(models.Model):
     height = models.IntegerField(verbose_name='Height, mm', blank=True, null=True)
     weight = models.IntegerField(verbose_name='Weight, kg', blank=True, null=True)
     # Image data
-    image1 = models.ImageField(verbose_name='Image 1', upload_to='image', blank=True, null=True)
-    image2 = models.ImageField(verbose_name='Image 2', upload_to='image', blank=True, null=True)
-    image3 = models.ImageField(verbose_name='Image 3', upload_to='image', blank=True, null=True)
+    image1 = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    image2 = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    image3 = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
     # Files data
-    spec_file = models.FileField(verbose_name='Specifications file', upload_to='file', blank=True, null=True)
-    sparts_file = models.FileField(verbose_name='Spare parts file', upload_to='file', blank=True, null=True)
-    cons_file = models.FileField(verbose_name='Consumables file', upload_to='file', blank=True, null=True)
-    warranty_file = models.FileField(verbose_name='Warranty file', upload_to='file', blank=True, null=True)
-    instruct_file = models.FileField(verbose_name='Instructions file', upload_to='file', blank=True, null=True)
-    main_file = models.FileField(verbose_name='Maintenance file', upload_to='file', blank=True, null=True)
+    spec_file = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    sparts_file = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    cons_file = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    warranty_file = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    instruct_file = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    main_file = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
     # Auto generated data
     machineId = models.CharField(verbose_name='Machine id', max_length=12, primary_key=True, unique=True,
                                  db_index=True, editable=False)
-    qrcode_png = models.ImageField(verbose_name='QR code image png', upload_to='code', blank=True, null=True, max_length=200, editable=False)
-    qrcode_small = models.ImageField(verbose_name='Mini QR image png', upload_to='code', blank=True, null=True, max_length=200, editable=False)
-    qrcode_eps = models.ImageField(verbose_name='QR code image eps', upload_to='code', blank=True, null=True, max_length=200, editable=False)
+    qrcode_png = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    qrcode_small = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
+    qrcode_eps = models.CharField(verbose_name='Machine model', blank=True, null=True, max_length=200)
 
     def __str__(self):
         return self.machineId
@@ -49,15 +49,6 @@ class Machine(models.Model):
         if not self.pk:
             # Generating id string and QR codes
             randid = get_random_string(allowed_chars='abcdefghijklmnopqrstuvwxyz0123456789')
-
-            pyqrcode.create(settings.DOMAIN + "/item/" + randid + "/").eps(
-                "media/code/"+randid + '.eps', scale=20)
-
-            pyqrcode.create(settings.DOMAIN + "/item/" + randid + "/").png(
-                "media/code/"+randid + '.png', scale=20)
-
-            pyqrcode.create(settings.DOMAIN + "/item/" + randid + "/").png(
-                "media/code/"+randid + '_mini.png', scale=6)
 
             # Assigning pk and QR codes
             self.machineId = randid
