@@ -26,7 +26,7 @@ PyQRCode==1.2.1
 python-dateutil==2.8.0
 python-dotenv==0.10.3
 pytz==2019.1
-PyYAML==5.1.2
+PyYAML==5.4
 qrcode==6.1
 rsa==3.4.2
 s3transfer==0.2.1
